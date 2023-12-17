@@ -87,9 +87,11 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: calc(2.2vw + 1.2rem);
-  
 }
 
+.space {
+  height: 300vw;
+}
 .logo {
   --initial-hue: 0deg;
   --initial-color: #eb871e;
@@ -98,7 +100,6 @@ body {
   border-color: var(--initial-color);
   transition: color 13.3s ease; /* Add a transition for a smooth effect */
 }
-
 
 /* .wiggle-btn:hover {
   animation: none;
@@ -129,4 +130,3 @@ body {
     transform: rotateZ(0);
   }
 }
-
