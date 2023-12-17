@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Lithos-Bold";
+  src: local("Lithos-Bold"), url("fonts/Lithos-Bold1.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: "Lithos-Bold", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: calc(0.9rem + 1.990625vw);
+  background-color: #13070c;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.midcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vw;
+  color: #eb871e;
+}
+
+.logo,
+.time-scroll,
+.achine-scroll {
+  position: -webkit-sticky;
+  position: sticky;
+  color: #13070c;
+  font-family: "Lithos-Bold", sans-serif;
+}
+
+.logo {
+  transform: translate(0%, -50%);
+  background-color: black;
+  color: #eb871e;
+  border-color: #eb871e;
+  border-left-style: double;
+  border-right-style: double;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  /* border-radius: 30px; */
+  padding: 0.1rem;
+}
+
+.achine-scroll {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -20%;
+  /* margin-bottom: 4.5vw; */
+}
+
+.logo {
+  z-index: 2;
+}
+
+.time-scroll,
+.achine-scroll {
+  z-index: 1;
+}
+
+.topbar {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  height: 6vh;
+  width: 100%;
+  background-color: #eb871e;
+  padding-top: calc(2vw + 1rem);
+}
+
+.wiggle-container {
+  display: flex; /* Use flex for the container */
+  align-items: center; /* Align items vertically in the container */
+}
+
+.wiggle-btn {
+  animation: wiggle 7s linear infinite;
+  animation-delay: inherit;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(2.2vw + 1.2rem);
+  
+}
+
+.logo {
+  --initial-hue: 0deg;
+  --initial-color: #eb871e;
+
+  color: var(--initial-color);
+  border-color: var(--initial-color);
+  transition: color 13.3s ease; /* Add a transition for a smooth effect */
+}
+
+
+/* .wiggle-btn:hover {
+  animation: none;
+} */
+
+@keyframes wiggle {
+  0%,
+  5% {
+    transform: rotateZ(0deg);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
