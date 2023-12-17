@@ -73,6 +73,7 @@ body {
 }
 
 .topbar {
+  padding-left: 10px;
   position: fixed;
   display: flex;
   justify-content: center;
