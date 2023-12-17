@@ -1,3 +1,28 @@
+//reveal
+
+// function reveal() {
+//   var reveals = document.querySelectorAll(".reveal");
+
+//   for (var i = 0; i < reveals.length; i++) {
+//     var windowHeight = window.innerHeight;
+//     var elementTop = reveals[i].getBoundingClientRect().top;
+//     var elementVisible = 10;
+
+//     if (elementTop < windowHeight - elementVisible) {
+//       reveals[i].classList.add("active");
+//     } else {
+//       reveals[i].classList.remove("active");
+//     }
+//   }
+// }
+
+// window.addEventListener("scroll", reveal);
+
+
+
+
+//animation
+
 document.addEventListener("DOMContentLoaded", function () {
   const logo = document.querySelector(".logo");
   const scrollingText = document.querySelector(".time-scroll");
@@ -6,16 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateAnimation() {
     const scrollPosition = window.scrollY;
-    const convergenceAmount = scrollPosition / 5;
 
-    scrollingText.style.transform = `translateX(${convergenceAmount}px) translateY(-50%)`;
-    scrollingText.style.opacity = 2 - scrollPosition / 70;
+    // Adjust these values for responsiveness
+    const screenSizeFactor = window.innerWidth / 500; // Change the divisor based on your desired responsiveness
+    const convergenceAmount = scrollPosition / (25* screenSizeFactor);
+
+    scrollingText.style.transform = `translateX(${convergenceAmount}vw) translateY(-50%)`;
+    scrollingText.style.opacity = 2 - scrollPosition / 105;
 
     // Request the next animation frame
     animationFrameId = requestAnimationFrame(updateAnimation);
   }
-
-  
 
   // Start the animation
   updateAnimation();
@@ -31,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const logo = document.querySelector(".logo");
   const scrollingText = document.querySelector(".achine-scroll");
@@ -39,16 +66,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateAnimation() {
     const scrollPosition = window.scrollY;
-    const convergenceAmount = scrollPosition / -5;
 
-    scrollingText.style.transform = `translateX(${convergenceAmount}px) translateY(-50%)`;
-    scrollingText.style.opacity = 2 - scrollPosition / 70;
+    // Adjust these values for responsiveness
+    const screenSizeFactor = window.innerWidth / 100; // Change the divisor based on your desired responsiveness
+    const convergenceAmount = scrollPosition / (-5 * screenSizeFactor);
+
+    scrollingText.style.transform = `translateX(${convergenceAmount}vw) translateY(-50%)`;
+    scrollingText.style.opacity = 2 - scrollPosition / 105;
 
     // Request the next animation frame
     animationFrameId = requestAnimationFrame(updateAnimation);
   }
-
-  
 
   // Start the animation
   updateAnimation();
@@ -62,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       updateAnimation();
     }
   });
-  
 });
 
 
@@ -77,20 +104,20 @@ window.addEventListener('scroll', () => {
     scrollingStarted = true;
 
     // Set initial color and hue values
-    logo.style.setProperty('--initial-hue', '0deg');
-    logo.style.setProperty('--initial-color', '#eb871e');
+    logo.style.setProperty('--initial-hue', '180deg');
+    logo.style.setProperty('--initial-color', '#13070c');
   }
 
   if (scrollingStarted) {
     // Adjust these values for the desired effect
-    const hueSpeed = 5; // Controls how fast the hue changes
-    const saturationSpeed = 5; // Controls the saturation (constant in this example)
+    const hueSpeed = 15; // Controls how fast the hue changes
+    const saturationSpeed = 15; // Controls the saturation (constant in this example)
 
     const hue = (window.scrollY || window.scrollY) / hueSpeed;
     const saturation = (window.scrollY || window.scrollY) / saturationSpeed;
 
     // Use HSL color model for continuous hue change with red tones
-    const hslColor = `hsl(${(hue) % 30}, 100%, 30%)`;
+    const hslColor = `hsl(${(hue) % 360}, 30%, 30%)`;
 
     logo.style.color = hslColor;
     logo.style.borderColor = hslColor;
