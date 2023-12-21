@@ -11,7 +11,7 @@ $(document).ready(function () {
       var linearGradientPosition = 121.4 + scrollPercentage * 1113.5; // Adjust as needed
   
       // Update CSS properties
-      $('.background, .background2').css({
+      $('.background, .background2, .background3').css({
         'background-position': `17.5px ${gradientPosition}px, 17.5px ${gradientPosition}px, 0 -${linearGradientPosition}px, -${linearGradientPosition}px 0`,
       });
     }
@@ -41,3 +41,37 @@ function moveSecondHands() {
       }
     }, 1000);
   }
+
+
+  //gallery
+
+  const slideGallery = document.querySelector('.slides');
+const slides = slideGallery.querySelectorAll('div');
+const scrollbarThumb = document.querySelector('.thumb');
+const slideCount = slides.length;
+const slideHeight = 720;
+const marginTop = 16;
+
+const scrollThumb = () => {
+  const index = Math.floor(slideGallery.scrollTop / slideHeight);
+  scrollbarThumb.style.height = `${((index + 1) / slideCount) * slideHeight}px`;
+};
+
+const scrollToElement = el => {
+  const index = parseInt(el.dataset.id, 10);
+  slideGallery.scrollTo(0, index * slideHeight + marginTop);
+};
+
+document.querySelector('.thumbnails').innerHTML += [...slides]
+  .map(
+    (slide, i) => `<img src="${slide.querySelector('img').src}" data-id="${i}">`
+  )
+  .join('');
+
+document.querySelectorAll('.thumbnails img').forEach(el => {
+  el.addEventListener('click', () => scrollToElement(el));
+});
+
+slideGallery.addEventListener('scroll', e => scrollThumb());
+
+scrollThumb();
