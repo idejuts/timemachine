@@ -11,7 +11,7 @@ $(document).ready(function () {
       var linearGradientPosition = 121.4 + scrollPercentage * 1113.5; // Adjust as needed
   
       // Update CSS properties
-      $('.background').css({
+      $('.background, .background2').css({
         'background-position': `17.5px ${gradientPosition}px, 17.5px ${gradientPosition}px, 0 -${linearGradientPosition}px, -${linearGradientPosition}px 0`,
       });
     }
