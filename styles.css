@@ -3,139 +3,111 @@
   src: local("Lithos-Bold"), url("fonts/Lithos-Bold1.ttf") format("truetype");
 }
 
+:root {
+  --big-text-color: orange;
+  --big-text-font: "Lithos-Bold", sans-serif;
+  --big-text-size: 80px;
+
+  --mid-text-color: white;
+  --mid-text-font: "Road Rage", sans-serif;
+  --mid-text-size: 36px;
+
+  --small-text-color: #999;
+  --small-text-font: "Rhodium Libre", sans-serif;
+  --small-text-size: 14px;
+}
+
 body {
   margin: 0;
-  font-family: "Lithos-Bold", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: calc(0.9rem + 1.990625vw);
-  background-color: #93B7BE;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.midcontainer {
+  padding: 0;
+  font-family: var(--mid-text-font);
+  font-size: var(--mid-text-size);
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center along the vertical axis */
-  align-items: center; /* Center along the horizontal axis */
-  align-self: center;
+  min-height: 100vh;
+}
+
+img {
+  box-sizing: border-box;
+}
+
+.bigT {
+  font-family: var(--big-text-font);
+  font-size: var(--big-text-size);
+  color: var(--big-text-color);
+  overflow-wrap: anywhere;
+  max-width: 250px;
+}
+
+.midT {
+  font-family: var(--mid-text-font);
+  font-size: var(--mid-text-size);
+  color: var(--mid-text-color);
+}
+
+.smallT {
+  font-family: var(--small-text-font);
+  font-size: var(--small-text-size);
+  color: var(--small-text-color);
+}
+
+main {
+  flex: 1;
+  display: flex;
   flex-wrap: wrap;
-  padding-top: calc(2vw + 6rem);
-  text-align: center; /* Center the text within the container */
-  color: #BC6910;
-  font-size: calc(0.3rem + 1.990625vw);
-}
-
-
-
-
-.logo,
-.time-scroll,
-.achine-scroll {
-  position: -webkit-sticky;
-  position: sticky;
-  color: #93B7BE;
-  font-family: "Lithos-Bold", sans-serif;
-}
-
-.logo {
-  transform: translate(0%, -50%);
-  background-color: #93B7BE;
-  color: #BC6910;
-  border-color: #BC6910;
-  border-left-style: double;
-  border-right-style: double;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  /* border-radius: 30px; */
-  padding: 0.1rem;
-}
-
-.achine-scroll {
-  position: -webkit-sticky;
-  position: sticky;
-  top: -20%;
-  /* margin-bottom: 4.5vw; */
-}
-
-.logo {
-  z-index: 2;
-}
-
-.time-scroll,
-.achine-scroll {
-  z-index: 1;
-}
-
-.topbar {
-  padding-left: 10px;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  height: 6vh;
-  width: 100%;
-  background-color: #CE7312;
-  padding-top: calc(2vw + 1rem);
-}
-
-.wiggle-container {
-  display: flex; /* Use flex for the container */
-  align-items: center; /* Align items vertically in the container */
-}
-
-.wiggle-btn {
-  animation: wiggle 7s linear infinite;
-  animation-delay: inherit;
-  position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: calc(2.2vw + 1.2rem);
+  flex-direction: column;
 }
 
-.space {
-  height: 200vw;
+section {
+  padding: 20px;
+  text-align: center;
+  min-width: 320px;
+  max-width: 1024px; /* Updated */
+  min-height: 800px;
+  max-height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
-.logo {
-  --initial-hue: 0deg;
-  --initial-color: #BC6910;
 
-  color: var(--initial-color);
-  border-color: var(--initial-color);
-  transition: color 13.3s ease; /* Add a transition for a smooth effect */
+.hero h1 {
+  overflow-wrap: anywhere;
+  max-width: 250px;
 }
 
-/* .wiggle-btn:hover {
-  animation: none;
-} */
-
-@keyframes wiggle {
-  0%,
-  5% {
-    transform: rotateZ(0deg);
-  }
-  15% {
-    transform: rotateZ(-15deg);
-  }
-  20% {
-    transform: rotateZ(10deg);
-  }
-  25% {
-    transform: rotateZ(-10deg);
-  }
-  30% {
-    transform: rotateZ(6deg);
-  }
-  35% {
-    transform: rotateZ(-4deg);
-  }
-  40%,
-  100% {
-    transform: rotateZ(0);
-  }
+section:nth-child(1) {
+  background-image: url("bildes/hero1.png");
 }
+
+section:nth-child(2) {
+  background-image: url("bildes/speles1.jpg");
+}
+
+section:nth-child(3) {
+  background-image: url("path/to/image3.jpg");
+}
+
+section:nth-child(4) {
+  background-image: url("path/to/image4.jpg");
+}
+
+section:nth-child(5) {
+  background-image: url("path/to/image5.jpg");
+}
+
+section:nth-child(6) {
+  background-image: url("path/to/image6.jpg");
+}
+
+
+@media screen and (max-width: 768px) {
+    section {
+      /* background-position: right center; */
+    }
+  }
